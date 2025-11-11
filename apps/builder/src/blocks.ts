@@ -73,7 +73,6 @@ export const blocksMapSymbol = Symbol('blocksMap')
 
 export const initBlocks = () => {
     const ins = {
-        // eslint-disable-next-line no-undef
         install(app: App<Element>) {
             // 这两个操作基本上是 Vue3 视图相关插件的标配
             app.provide(blocksMapSymbol, blocksMap)

@@ -89,7 +89,7 @@ const editable = inject('editable', true)
     position: absolute;
     left: 0;
     top: -36px;
-    z-index: 1;
+    z-index: 2;
     padding: 4px 8px;
     gap: 4px;
     background-color: var(--color-black);

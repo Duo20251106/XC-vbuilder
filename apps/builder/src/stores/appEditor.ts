@@ -12,6 +12,10 @@ export const useAppEditorStore = defineStore('appEditor', () => {
         currentBlockId.value = id
     }
 
+    function unSelectBlock() {
+        currentBlockId.value = null
+    }
+
     function updateBlocks(newBlocks: typeof blocksData) {
         blocks.value = newBlocks
     }
@@ -25,5 +29,5 @@ export const useAppEditorStore = defineStore('appEditor', () => {
         }
     }
 
-    return { currentBlockId, blocks, selectBlock, updateBlocks, updateBlock }
+    return { currentBlockId, unSelectBlock, blocks, selectBlock, updateBlocks, updateBlock }
 })

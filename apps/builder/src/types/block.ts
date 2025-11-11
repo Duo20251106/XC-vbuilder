@@ -10,10 +10,14 @@ export interface BaseBlockInfo {
 
 /** basic blocks */
 
+export type HeroTitleBlockAlign = 'left' | 'center' | 'right'
+
 export interface HeroTitleBlockInfo extends BaseBlockInfo {
     type: 'heroTitle'
     props: {
+        align: HeroTitleBlockAlign
         content: string
+        description?: string[]
     }
 }
 
@@ -29,13 +33,14 @@ export interface ViewBlockInfo extends BaseBlockInfo {
     }
 }
 
-export type QuoteBlockStatus = 'success' | 'warning' | 'error'
+export const QuoteBlockStatus = ['success', 'warning', 'error'] as const
+export type QuoteBlockStatusType = (typeof QuoteBlockStatus)[number]
 
 export interface QuoteBlockInfo extends BaseBlockInfo {
     type: 'quote'
     props: {
         content: string
-        status: QuoteBlockStatus
+        status: QuoteBlockStatusType
     }
 }
 

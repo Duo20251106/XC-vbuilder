@@ -95,6 +95,7 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
                 type: 'heroTitle',
                 label: '标题',
                 props: {
+                    align: 'left',
                     content: '标题'
                 }
             }
@@ -104,7 +105,7 @@ export const getBlocksDefaultData = (type: BlockType): BlockInfo => {
                 type: 'image',
                 label: 'Image',
                 props: {
-                    url: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600'
+                    url: 'https://images.pexels.com/photos/17108884/pexels-photo-17108884.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load'
                 }
             }
         case 'view':

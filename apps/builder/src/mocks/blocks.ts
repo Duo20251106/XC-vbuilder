@@ -6,7 +6,8 @@ export const blocks: BlockInfo[] = [
         type: 'heroTitle',
         label: '标题',
         props: {
-            content: '标题'
+            align: 'left',
+            content: 'Welcome to my webpage'
         }
     },
     {
@@ -15,7 +16,7 @@ export const blocks: BlockInfo[] = [
         label: 'Quote',
         props: {
             content: 'Quote Content',
-            status: 'error'
+            status: 'success'
         }
     },
     {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Error, Success, Wallet } from '@icon-park/vue-next'
+import { computed } from 'vue'
 
 import type { QuoteBlockInfo } from '@/types/block'
 
@@ -28,15 +29,20 @@ const props = defineProps<{
     blockInfo: QuoteBlockInfo
 }>()
 
-const { color, bgColor, /* borderColor, */ icon } = STATUS_MAP[props.blockInfo.props.status]
+const style = computed(() => {
+    const { color, bgColor, /* borderColor, */ icon } = STATUS_MAP[props.blockInfo.props.status]
+    return {
+        backgroundColor: bgColor,
+        color,
+        icon
+        // border: `1px solid ${borderColor}`
+    }
+})
 </script>
 
 <template>
-    <div
-        class="quote"
-        :style="{ backgroundColor: bgColor, color /* , border: `1px solid ${borderColor}` */ }"
-    >
-        <component :is="icon" />
+    <div class="quote" v-bind="{ style }">
+        <component :is="style.icon" />
         <span class="quote-text">{{ props.blockInfo.props.content }}</span>
     </div>
 </template>
