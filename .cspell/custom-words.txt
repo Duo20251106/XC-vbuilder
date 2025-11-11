@@ -1,4 +1,5 @@
 behaviour
 geuy
 pinia
+tiptap
 vbuilder
