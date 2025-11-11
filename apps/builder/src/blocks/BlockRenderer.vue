@@ -16,7 +16,6 @@ import type { BlockInfo } from '@/types/block'
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler
 
-// eslint-disable-next-line no-undef
 const blockWrapperRef = ref<HTMLElement | null>(null) // 每个 block 外层容器一个 ref（DOM 引用）
 const appEditorStore = useAppEditorStore()
 
@@ -55,7 +54,6 @@ const editable = inject('editable', true)
     width: 100%;
     margin-top: 16px;
     padding: 6px 4px;
-    border-radius: 8px;
     background-color: var(--color-white);
     transition: box-shadow 0.2s ease-in-out;
 }
