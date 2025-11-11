@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import type { PreviewType } from './type'
 const props = defineProps<{
@@ -25,7 +27,9 @@ function greet(mode: PreviewType) {
             <div class="layout-runner-content-header">
                 <div class="layout-runner-content-title">XC Vbuilder</div>
             </div>
-            <div class="layout-runner-content"></div>
+            <div class="layout-runner-content">
+                <BlocksRenderer />
+            </div>
         </div>
     </div>
 </template>

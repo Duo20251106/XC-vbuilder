@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import StatusBar from './StatusBar.vue'
 import type { PreviewType } from './type'
@@ -16,7 +18,7 @@ function greet(mode: PreviewType) {
 </script>
 
 <template>
-    <div class="layout-runner"  style="--container-bg-color: #3D6583">
+    <div class="layout-runner" style="--container-bg-color: #3d6583">
         <div class="layout-runner-navigator">
             <PreviewModeSwitcher :preview-mode="props.previewMode" @preview-mode-change="greet" />
         </div>
@@ -27,7 +29,9 @@ function greet(mode: PreviewType) {
                     <div class="simulator-navigator">XC Vbuilder</div>
                 </div>
             </div>
-            <div class="simulator"></div>
+            <div class="simulator">
+                <BlocksRenderer />
+            </div>
         </div>
     </div>
 </template>
