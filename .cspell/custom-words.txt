@@ -1,5 +1,9 @@
 behaviour
+curveness
+echarts
 geuy
+miserables
 pinia
 tiptap
 vbuilder
+zrender
