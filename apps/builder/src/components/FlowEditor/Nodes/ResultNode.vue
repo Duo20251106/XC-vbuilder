@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Handle, Position, useHandleConnections, useNodesData, useVueFlow } from '@vue-flow/core'
+import { Handle, Position, useNodeConnections, useNodesData, useVueFlow } from '@vue-flow/core'
 import { computed } from 'vue'
 
 defineProps(['id'])
@@ -16,17 +16,17 @@ const mathFunctions: Record<string, (a: number, b: number) => number> = {
 const { getConnectedEdges } = useVueFlow()
 
 // 获取当前节点的输入连接
-const sourceConnections = useHandleConnections({
+const sourceConnections = useNodeConnections({
     // 当前节点作为 目标节点（Target），即有线“指向”它
     // 这些连接的源头（source）就是它要读取数据的上游节点
-    type: 'target'
+    handleType: 'target'
 })
 
 // 获取上游的“运算符节点”
 const operatorSourceConnections = computed(() => {
     const firstConnection = sourceConnections.value[0]
     if (!firstConnection?.source) return []
-
+    
     // sourceConnections.value[0].source 是连接到当前节点的“运算符节点 ID”
     // getConnectedEdges(id) 获取该运算符节点的所有连线。
     return getConnectedEdges(firstConnection.source).filter(
