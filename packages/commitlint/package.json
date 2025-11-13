@@ -1,0 +1,15 @@
+{
+    "name": "@xc-vbuilder/commitlint-config-xc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "module": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "@commitlint/cli": "20.1.0",
+        "@commitlint/config-conventional": "20.0.0"
+    }
+}

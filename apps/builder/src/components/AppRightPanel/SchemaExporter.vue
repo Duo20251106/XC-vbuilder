@@ -47,7 +47,7 @@ const handleCopyText = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 12px 0 12px;
+    padding: 12px 12px 0;
     gap: 8px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--color-gray-300);
