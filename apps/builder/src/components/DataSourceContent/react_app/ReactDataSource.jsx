@@ -80,16 +80,27 @@ export default function ReactDataSource(props) {
         const person = data[row]
         switch (col) {
             case 0:
-                return { kind: GridCellKind.RowID, data: person.id, displayData: person.id }
+                return {
+                    kind: GridCellKind.RowID,
+                    data: person.id,
+                    allowOverlay: false,
+                    displayData: person.id
+                }
             case 1:
                 return {
                     kind: GridCellKind.Text,
                     data: person.name,
+                    allowOverlay: true,
                     displayData: person.name,
                     hasMenu: true
                 }
             case 2:
-                return { kind: GridCellKind.Number, data: person.age, displayData: person.age }
+                return {
+                    kind: GridCellKind.Number,
+                    data: person.age,
+                    allowOverlay: true,
+                    displayData: person.age
+                }
             case 3:
                 return {
                     kind: GridCellKind.Boolean,
@@ -97,13 +108,24 @@ export default function ReactDataSource(props) {
                     displayData: person.isOpen
                 }
             case 4:
-                return { kind: GridCellKind.Bubble, data: person.hobby, displayData: person.hobby }
+                return {
+                    kind: GridCellKind.Bubble,
+                    data: person.hobby,
+                    allowOverlay: true,
+                    displayData: person.hobby
+                }
             case 5:
-                return { kind: GridCellKind.Image, data: person.avatar, displayData: person.avatar }
+                return {
+                    kind: GridCellKind.Image,
+                    data: person.avatar,
+                    allowOverlay: true,
+                    displayData: person.avatar
+                }
             case 6:
                 return {
                     kind: GridCellKind.Markdown,
                     data: person.notes,
+                    allowOverlay: true,
                     displayData: person.notes
                 }
             default:
