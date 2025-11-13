@@ -15,7 +15,7 @@ interface Props {
     initialNodes?: Node[]
     initialEdges?: Edge[]
     nodeTemplates: any
-    nodeType: string
+    nodeType: 'math' | 'workflow'
 }
 
 const props = defineProps<Props>()
@@ -24,7 +24,16 @@ const nodes = ref<Node[]>(props.initialNodes || []) //节点
 const edges = ref<Edge[]>(props.initialEdges || []) //边
 const initialNodesSnapshot = JSON.parse(JSON.stringify(props.initialNodes || []))
 const { updatePos, logToObject, resetViewport } = useFlowUtils(nodes)
-const { onDragOver, onDrop, onDragLeave, isDragOver, onResetNode } = useDragAndDrop(nodes)
+const { onDragOver, onDrop, onDragLeave, isDragOver, onDeleteNode, onResetNode } = useDragAndDrop(
+    nodes,
+    edges
+)
+
+const { onNodeClick } = useVueFlow()
+const currentNodeId = ref()
+onNodeClick(({ node }) => {
+    currentNodeId.value = node.id
+})
 
 /**
  * VueFlow核心钩子
@@ -45,6 +54,8 @@ onConnect((params) => addEdges(params))
             :nodes="nodes"
             :edges="edges"
             :default-viewport="{ zoom: 1, x: 300, y: 300 }"
+            :fit-view-on-init="false"
+            :fit-view-on-update="false"
             :min-zoom="0.2"
             :max-zoom="4"
             @dragover="onDragOver"
@@ -68,6 +79,7 @@ onConnect((params) => addEdges(params))
                 @reset="resetViewport(onResetNode(initialNodesSnapshot ?? []))"
                 @shuffle="updatePos"
                 @log="logToObject"
+                @delete="onDeleteNode(currentNodeId)"
             />
         </VueFlow>
 

@@ -1,4 +1,4 @@
-import { type Node, useVueFlow, type XYPosition } from '@vue-flow/core'
+import { type Edge, type Node, useVueFlow, type XYPosition } from '@vue-flow/core'
 import { type Ref, ref, watch } from 'vue'
 
 let id = 0
@@ -20,7 +20,7 @@ const state: DragState = {
     isDragging: ref<boolean>(false)
 }
 
-export default function useDragAndDrop(nodes?: Ref<Node[]>) {
+export default function useDragAndDrop(nodes?: Ref<Node[]>, edges?: Ref<Edge[]>) {
     const { draggedType, isDragOver, isDragging } = state
 
     const { addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode } = useVueFlow()
@@ -116,6 +116,15 @@ export default function useDragAndDrop(nodes?: Ref<Node[]>) {
         nodes?.value.push(newNode)
     }
 
+    function onDeleteNode(nodeId: any) {
+        if (nodes && nodeId) {
+            nodes.value = nodes.value.filter((node) => node.id !== nodeId)
+            if (edges) {
+                edges.value = edges.value.filter((e) => e.source !== nodeId && e.target !== nodeId)
+            }
+        }
+    }
+
     function onResetNode(newNodes: any) {
         if (nodes) nodes.value = newNodes
     }
@@ -128,6 +137,7 @@ export default function useDragAndDrop(nodes?: Ref<Node[]>) {
         onDragLeave,
         onDragOver,
         onDrop,
+        onDeleteNode,
         onResetNode
     }
 }

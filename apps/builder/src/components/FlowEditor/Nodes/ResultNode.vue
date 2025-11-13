@@ -62,28 +62,30 @@ const result = computed(() => {
 </script>
 
 <template>
-    <div class="calculation">
-        <template v-for="(value, i) in valueData" :key="`${value.id}-${value.data}`">
-            <span>
-                {{ value.data?.value }}
-            </span>
+    <div>
+        <div class="calculation">
+            <template v-for="(value, i) in valueData" :key="`${value.id}-${value.data}`">
+                <span>
+                    {{ value.data?.value }}
+                </span>
 
-            <span v-if="i !== valueData.length - 1">
-                {{ operatorData[0]?.data?.operator }}
-            </span>
-        </template>
+                <span v-if="i !== valueData.length - 1">
+                    {{ operatorData[0]?.data?.operator }}
+                </span>
+            </template>
+        </div>
+
+        <span> = </span>
+
+        <span class="result" :style="{ color: result > 0 ? '#5EC697' : '#f15a16' }">
+            {{ result }}
+        </span>
+
+        <Handle
+            type="target"
+            :position="Position.Left"
+            :connectable="false"
+            :style="{ background: result > 0 ? '#5EC697' : '#f15a16' }"
+        />
     </div>
-
-    <span> = </span>
-
-    <span class="result" :style="{ color: result > 0 ? '#5EC697' : '#f15a16' }">
-        {{ result }}
-    </span>
-
-    <Handle
-        type="target"
-        :position="Position.Left"
-        :connectable="false"
-        :style="{ background: result > 0 ? '#5EC697' : '#f15a16' }"
-    />
 </template>

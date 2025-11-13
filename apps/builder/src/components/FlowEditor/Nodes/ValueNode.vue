@@ -34,9 +34,11 @@ const currentConfig = computed(() => nodeConfig[props.data.nodeType || 'value'])
 </script>
 
 <template>
-    <input :id="`${id}-input`" v-model="value" :type="currentConfig.type" class="nodrag" />
+    <div>
+        <input :id="`${id}-input`" v-model="value" :type="currentConfig.type" class="nodrag" />
 
-    <Handle v-if="currentConfig.bottom" type="source" :position="Position.Bottom" />
-    <Handle v-if="currentConfig.top" type="target" :position="Position.Top" />
-    <Handle v-if="currentConfig.right" type="source" :position="Position.Right" />
+        <Handle v-if="currentConfig.bottom" type="source" :position="Position.Bottom" />
+        <Handle v-if="currentConfig.top" type="target" :position="Position.Top" />
+        <Handle v-if="currentConfig.right" type="source" :position="Position.Right" />
+    </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Log, Resting, Shuffle } from '@icon-park/vue-next'
+import { Delete,Log, Resting, Shuffle } from '@icon-park/vue-next'
 import { Panel } from '@vue-flow/core'
 </script>
 
@@ -15,6 +15,10 @@ import { Panel } from '@vue-flow/core'
 
         <div class="control-btn" title="Log `toObject`" @click="$emit('log')">
             <Log />
+        </div>
+
+        <div class="control-btn" title="delete node" @click="$emit('delete')">
+            <Delete />
         </div>
     </Panel>
 </template>
