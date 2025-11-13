@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
+import ActionDetailView from '@/views/ActionDetailView.vue'
+
 import ActionView from '../views/ActionView.vue'
 import AppView from '../views/AppView.vue'
 import DataSourceDetailView from '../views/DataSourceDetailView.vue'
@@ -36,7 +38,14 @@ const routes: RouteRecordRaw[] = [
             {
                 path: 'actions',
                 name: 'actions',
-                component: ActionView
+                component: ActionView,
+                children: [
+                    {
+                        path: ':id',
+                        name: 'actionsDetail',
+                        component: ActionDetailView
+                    }
+                ]
             }
         ]
     }

@@ -2,8 +2,12 @@ behaviour
 curveness
 echarts
 geuy
+handleid
 miserables
+nodrag
 pinia
+Siderbar
 tiptap
 vbuilder
+vueflow
 zrender
