@@ -1,10 +1,13 @@
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+// import vue from '@vitejs/plugin-vue'
+// import vueJsx from '@vitejs/plugin-vue-jsx'
+// @ts-ignore
+import veauryVitePlugins from 'veaury/vite/index.js'
+// const veauryVitePlugins = require('veaury/vite/index.js')
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
-    plugins: [vue(), vueJsx(), vueDevTools()],
+    plugins: [/*vue(), vueJsx(),*/ vueDevTools(), veauryVitePlugins({ type: 'vue' })],
     resolve: {
         alias: {
             '@': '/src'

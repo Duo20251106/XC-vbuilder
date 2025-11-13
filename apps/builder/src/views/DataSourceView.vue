@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-const route = useRoute()
+import { RouterView } from 'vue-router'
+
+import DataSourceLeftPanel from '@/components/DataSourceLeftPanel/DataSourceLeftPanel.vue'
 </script>
 
 <template>
-    <div>dataSourceView{{ route.params.id }}</div>
-    <RouterView />
+    <div class="ds-wrapper">
+        <DataSourceLeftPanel />
+        <RouterView />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.ds-wrapper {
+    display: flex;
+    height: 100%;
+}
+</style>

@@ -2,12 +2,15 @@ behaviour
 curveness
 echarts
 geuy
+glideapps
 handleid
 miserables
+nodenext
 nodrag
 pinia
 Siderbar
 tiptap
 vbuilder
+veaury
 vueflow
 zrender

@@ -5,7 +5,7 @@ import ActionList from './ActionList.vue'
 </script>
 
 <template>
-    <div class="app-left-panel-wrapper">
+    <div class="actions-left-panel-wrapper">
         <div class="drawer-header">
             <h3 class="drawer-title">ACTIONS</h3>
             <button class="drawer-component-adder">
@@ -19,7 +19,7 @@ import ActionList from './ActionList.vue'
 </template>
 
 <style scoped>
-.app-left-panel-wrapper {
+.actions-left-panel-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;

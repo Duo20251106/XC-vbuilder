@@ -24,6 +24,10 @@ const routes: RouteRecordRaw[] = [
                 component: DataSourceView,
                 children: [
                     {
+                        path: '',
+                        redirect: '/app/dataSource/1'
+                    },
+                    {
                         path: ':id',
                         name: 'dataSourceDetail',
                         component: DataSourceDetailView
