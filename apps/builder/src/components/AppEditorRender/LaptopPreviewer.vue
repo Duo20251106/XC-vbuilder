@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+import { ref } from 'vue';
 
+import LaptopPreviewer from '../AppPreviewer/LaptopPreviewer.vue'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import type { PreviewType } from './type'
 const props = defineProps<{
     previewMode?: PreviewType
 }>()
+
+const runner = ref<HTMLElement | null>(null)
 
 const emit = defineEmits<{
     'preview-mode-change': [mode: PreviewType]
@@ -14,23 +17,32 @@ const emit = defineEmits<{
 function greet(mode: PreviewType) {
     emit('preview-mode-change', mode)
 }
+
+function toggle() {
+    if (!runner.value) {
+        return
+    }
+    if (document.fullscreenElement) {
+        document.exitFullscreen()
+    } else {
+        runner.value.requestFullscreen()
+    }
+}
 </script>
 
 <template>
-    <div class="layout-runner">
+    <div class="layout-runner" ref="runner">
         <div class="layout-runner-navigator">
             <div></div>
             <div class="address-wrapper">https://xc.com/path/to/yoursite</div>
-            <PreviewModeSwitcher :preview-mode="props.previewMode" @preview-mode-change="greet" />
+
+            <PreviewModeSwitcher
+                :preview-mode="props.previewMode"
+                @preview-mode-change="greet"
+                @full-screen="toggle"
+            />
         </div>
-        <div class="layout-runner-content-wrapper tiny-scrollbar">
-            <div class="layout-runner-content-header">
-                <h1 class="layout-runner-content-title">XC vBuilder</h1>
-            </div>
-            <div class="layout-runner-content">
-                <BlocksRenderer />
-            </div>
-        </div>
+        <LaptopPreviewer />
     </div>
 </template>
 
@@ -79,36 +91,5 @@ function greet(mode: PreviewType) {
     &:hover {
         background-color: var(--color-gray-400);
     }
-}
-
-.layout-runner-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: auto;
-}
-
-.layout-runner-content-header {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-.layout-runner-content-title {
-    display: flex;
-    align-items: center;
-    padding: 0 90px;
-    height: 56px;
-    font-size: 24px;
-    font-weight: var(--font-weight-bolder);
-    color: var(--color-white);
-    background-color: var(--color-theme-bg);
-}
-
-.layout-runner-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 90px;
 }
 </style>

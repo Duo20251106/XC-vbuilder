@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Iphone, LaptopOne } from '@icon-park/vue-next'
+import { FullScreenOne,Iphone, LaptopOne } from '@icon-park/vue-next'
 import type { Icon } from '@icon-park/vue-next/lib/runtime'
 
 import type { PreviewType } from './type'
@@ -9,7 +9,9 @@ const props = defineProps<{
 }>()
 const emit = defineEmits<{
     'preview-mode-change': [mode: PreviewType]
+    'full-screen': []
 }>()
+
 function greet(mode: PreviewType) {
     emit('preview-mode-change', mode)
 }
@@ -37,6 +39,9 @@ const icons: { type: PreviewType; icon: Icon }[] = [
                 "
                 @click="greet(icon.type)"
             />
+        </div>
+        <div v-if="props.previewMode === 'laptop'" class="icon-button" @click="emit('full-screen')">
+            <full-screen-one />
         </div>
     </div>
 </template>

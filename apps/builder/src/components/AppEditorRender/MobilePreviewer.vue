@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+import { ref } from 'vue'
 
+import MobilePreviewer from '../AppPreviewer/MobilePreviewer.vue'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import StatusBar from './StatusBar.vue'
 import type { PreviewType } from './type'
@@ -8,6 +9,9 @@ import type { PreviewType } from './type'
 const props = defineProps<{
     previewMode?: PreviewType
 }>()
+
+const runner = ref<HTMLElement | null>(null)
+
 const emit = defineEmits<{
     'preview-mode-change': [mode: PreviewType]
 }>()
@@ -18,19 +22,16 @@ function greet(mode: PreviewType) {
 </script>
 
 <template>
-    <div class="layout-runner" style="--container-bg-color: #3d6583">
+    <div class="layout-runner" ref="runner">
         <div class="layout-runner-navigator">
             <PreviewModeSwitcher :preview-mode="props.previewMode" @preview-mode-change="greet" />
         </div>
         <div class="simulator-wrapper">
             <div class="simulator-header">
                 <StatusBar />
-                <div class="simulator-navigator-wrapper">
-                    <div class="simulator-navigator">XC vBuilder</div>
-                </div>
             </div>
-            <div class="simulator">
-                <BlocksRenderer />
+            <div class="simulator-content">
+                <MobilePreviewer />
             </div>
         </div>
     </div>
@@ -39,6 +40,7 @@ function greet(mode: PreviewType) {
 <style scoped>
 .layout-runner {
     flex: 1;
+    height: 98%;
 }
 
 .layout-runner-navigator {
@@ -57,21 +59,21 @@ function greet(mode: PreviewType) {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: calc(98% - 42px);
     width: 393px;
-    height: 852px;
     margin: 0 auto;
     border-radius: 55px;
     overflow: hidden;
     overflow-y: auto;
-    background-color: var(--color-white);
+    background-color: pink;
     box-shadow:
         0 0 0 5px #151515,
-        0 0 0 6px var(--container-bg-color),
+        0 0 0 6px var(--color-theme-bg),
         0 -7.5px 1.5px rgb(255 255 255 / 40%),
         7.5px 0 1.5px rgb(255 255 255 / 25%),
         -7.5px 0 1.5px rgb(255 255 255 / 40%),
         0 7.5px 1.5px rgb(255 255 255 / 25%),
-        0 0 0 9px var(--container-bg-color),
+        0 0 0 9px var(--color-theme-bg),
         6px 8px 16px rgb(0 0 0 / 25%),
         20px 32px 72px rgb(0 0 0 / 20%);
 }
@@ -84,25 +86,16 @@ function greet(mode: PreviewType) {
     position: sticky;
     top: 0;
     z-index: 2;
+    background-color: var(--color-theme-bg);
 }
 
-.simulator-navigator {
-    display: flex;
-    height: 56px;
-    align-items: center;
-    padding: 0 12px;
-    font-size: 18px;
-    font-weight: var(--font-weight-bolder);
-    color: var(--color-white);
-    background-color: var(--container-bg-color);
-    border-bottom: 1px solid rgb(31 41 55 / 8%);
-}
-
-.simulator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 12px 32px;
+.simulator-content {
     flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.simulator-content::-webkit-scrollbar {
+    display: none;
 }
 </style>
