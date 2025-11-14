@@ -53,7 +53,7 @@ function toggle() {
     flex: 1;
     height: 98%;
     overflow: auto;
-    margin: 8px 40px;
+    margin: 8px 3%;
     background-color: var(--color-white);
     border-radius: 8px;
     box-shadow:
@@ -73,7 +73,7 @@ function toggle() {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     padding: 0 16px;
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-gray-300);
     background-color: var(--color-gray-100);
 }
 

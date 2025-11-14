@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import MobilePreviewer from '../AppPreviewer/MobilePreviewer.vue'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import StatusBar from './StatusBar.vue'
+import TabBar from './TabBar.vue'
 import type { PreviewType } from './type'
 
 const props = defineProps<{
@@ -33,6 +34,9 @@ function greet(mode: PreviewType) {
             <div class="simulator-content">
                 <MobilePreviewer />
             </div>
+            <div class="simulator-home-bar">
+                <TabBar />
+            </div>
         </div>
     </div>
 </template>
@@ -59,7 +63,7 @@ function greet(mode: PreviewType) {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: calc(98% - 42px);
+    height: calc(100% - 42px);
     width: 393px;
     margin: 0 auto;
     border-radius: 55px;
@@ -97,5 +101,16 @@ function greet(mode: PreviewType) {
 
 .simulator-content::-webkit-scrollbar {
     display: none;
+}
+
+.simulator-home-bar {
+    width: 100%;
+    height: 34px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    overflow: hidden;
+    background: transparent;
 }
 </style>
