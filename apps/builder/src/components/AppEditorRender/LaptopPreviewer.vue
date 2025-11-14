@@ -25,7 +25,7 @@ function greet(mode: PreviewType) {
         </div>
         <div class="layout-runner-content-wrapper tiny-scrollbar">
             <div class="layout-runner-content-header">
-                <div class="layout-runner-content-title">XC Vbuilder</div>
+                <h1 class="layout-runner-content-title">XC vBuilder</h1>
             </div>
             <div class="layout-runner-content">
                 <BlocksRenderer />

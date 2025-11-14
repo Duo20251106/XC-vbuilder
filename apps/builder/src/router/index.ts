@@ -17,6 +17,7 @@ const routes: RouteRecordRaw[] = [
         path: '/app',
         name: 'home',
         component: AppView,
+        redirect:'/app/layout',
         children: [
             {
                 path: 'dataSource',

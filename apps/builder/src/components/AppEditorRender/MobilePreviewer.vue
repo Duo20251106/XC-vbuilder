@@ -26,7 +26,7 @@ function greet(mode: PreviewType) {
             <div class="simulator-header">
                 <StatusBar />
                 <div class="simulator-navigator-wrapper">
-                    <div class="simulator-navigator">XC Vbuilder</div>
+                    <div class="simulator-navigator">XC vBuilder</div>
                 </div>
             </div>
             <div class="simulator">

@@ -1,0 +1,16 @@
+{
+    "name": "@xc-vbuilder/playwright",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.20.0",
+    "devDependencies": {
+        "@playwright/test": "^1.56.1",
+        "@types/node": "20.19.25"
+    }
+}
