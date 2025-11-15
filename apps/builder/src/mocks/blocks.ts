@@ -24,7 +24,7 @@ export const blocks: BlockInfo[] = [
         type: 'image',
         label: 'Image',
         props: {
-            url: 'https://images.pexels.com/photos/17108884/pexels-photo-17108884.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load'
+            url: 'https://cdn.jsdelivr.net/gh/Duo20251106/resources@1.0/%E9%92%A2%E7%AD%8B%E6%B0%B4%E6%B3%A5.jpg'
         }
     },
     {

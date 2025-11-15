@@ -3,7 +3,11 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "packageManager": "pnpm@10.20.0",
     "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "test:playwright": "turbo run test:playwright",
         "lint:vue": "eslint .",
         "lint:css": "stylelint \"{packages,apps}/**/*.{css,scss,vue}\"",
         "lint:staged": "lint-staged",
@@ -56,6 +60,7 @@
         "lint-staged": "16.2.6",
         "@xc-vbuilder/eslint-config-xc": "workspace:*",
         "@xc-vbuilder/commitlint-config-xc": "workspace:*",
-        "@xc-vbuilder/stylelint-config-xc": "workspace:*"
+        "@xc-vbuilder/stylelint-config-xc": "workspace:*",
+        "turbo": "2.6.1"
     }
 }
