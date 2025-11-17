@@ -7,6 +7,7 @@ import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
+    base: '/xc-vbuilder/',
     plugins: [
         /*vue(), vueJsx(),*/ vueDevTools(),
         veauryVitePlugins({ type: 'vue' }),
