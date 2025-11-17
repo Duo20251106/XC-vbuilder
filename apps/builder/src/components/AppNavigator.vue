@@ -8,7 +8,7 @@ import {
     Page
 } from '@icon-park/vue-next'
 import { computed, defineComponent, h } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const linkItems = [
     {
@@ -39,6 +39,7 @@ defineProps<{
 }>()
 
 const route = useRoute()
+const router = useRouter()
 
 const activeLink = computed(() => route.name)
 
@@ -77,7 +78,7 @@ const Icon = defineComponent({
                 <ApplicationMenu size="16" />
             </RouterLink>
             <div class="app-logo">
-                <Aquarius size="32" :fill="'var(--color-logo-color)'"/>
+                <Aquarius size="32" :fill="'var(--color-logo-color)'" />
             </div>
             <h1 class="app-name">XC vBuilder</h1>
         </div>
@@ -107,9 +108,9 @@ const Icon = defineComponent({
             </RouterLink>
         </div>
         <div class="app-setting-wrapper">
-            <div class="common-btn">
+            <div class="common-btn" @click="router.push('/runner')">
                 <FriendsCircle size="16" />
-                发布
+                预览
             </div>
         </div>
     </div>
@@ -150,7 +151,7 @@ const Icon = defineComponent({
 .app-logo {
     width: 32px;
     height: 32px;
-    margin: 10px 8px 10px 8px;
+    margin: 10px 8px;
     border-radius: 8px;
     background-color: var(--color-theme-bg);
 }

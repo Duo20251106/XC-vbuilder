@@ -16,6 +16,7 @@
         "**/docs/**",
         "**/package.json",
         "**/MOCK_DATA.ts",
-        "eslint.config.js"
+        "eslint.config.js",
+        "**/stats.html"
     ]
 }

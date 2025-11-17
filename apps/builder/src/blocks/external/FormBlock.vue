@@ -5,16 +5,16 @@ type Field = {
     id: string
     type: 'input' | 'select'
 }
-defineProps({
-    title: {
-        type: String,
-        required: true
-    },
-    onClick: {
-        type: Function,
-        required: true
-    }
-})
+// defineProps({
+//     title: {
+//         type: String,
+//         required: true
+//     },
+//     onClick: {
+//         type: Function,
+//         required: true
+//     }
+// })
 
 const fieldMap = {
     input: h('input'),

@@ -1,11 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
-import ActionView from '../views/ActionView.vue'
-import AppView from '../views/AppView.vue'
-import DataSourceDetailView from '../views/DataSourceDetailView.vue'
-import DataSourceView from '../views/DataSourceView.vue'
-import PageLayout from '../views/PageLayout.vue'
-
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
@@ -14,31 +8,48 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/app',
         name: 'home',
-        component: AppView,
+        component: () => import('../views/AppView.vue'),
+        redirect: '/app/layout',
         children: [
             {
                 path: 'dataSource',
                 name: 'dataSource',
-                component: DataSourceView,
+                component: () => import('../views/DataSourceView.vue'),
                 children: [
+                    {
+                        path: '',
+                        redirect: '/app/dataSource/1'
+                    },
                     {
                         path: ':id',
                         name: 'dataSourceDetail',
-                        component: DataSourceDetailView
+                        component: () => import('../views/DataSourceDetailView.vue')
                     }
                 ]
             },
             {
                 path: 'layout',
                 name: 'layout',
-                component: PageLayout
+                component: () => import('../views/PageLayout.vue')
             },
             {
                 path: 'actions',
                 name: 'actions',
-                component: ActionView
+                component: () => import('../views/ActionView.vue'),
+                children: [
+                    {
+                        path: ':id',
+                        name: 'actionsDetail',
+                        component: () => import('../views/ActionDetailView.vue')
+                    }
+                ]
             }
         ]
+    },
+    {
+        path: '/runner',
+        name: 'runner',
+        component: () => import('../views/RunnerView.vue')
     }
 ]
 

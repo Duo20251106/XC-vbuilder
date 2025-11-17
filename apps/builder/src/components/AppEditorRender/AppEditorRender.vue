@@ -13,26 +13,21 @@ const handleModeChange = (mode: PreviewType) => {
 </script>
 
 <template>
-    <div class="layout-content-wrapper">
-        <div class="layout-content">
-            <LaptopPreviewer
-                v-if="previewMode === 'laptop'"
-                :key="'laptop'"
-                :preview-mode="previewMode"
-                @preview-mode-change="handleModeChange"
-            />
-            <MobilePreviewer
-                v-if="previewMode === 'mobile'"
-                :key="'mobile'"
-                :preview-mode="previewMode"
-                @preview-mode-change="handleModeChange"
-            />
+    <div class="layout-content">
+        <div class="layout-simulator-wrapper">
+            <KeepAlive>
+                <component
+                    :is="previewMode === 'laptop' ? LaptopPreviewer : MobilePreviewer"
+                    :preview-mode="previewMode"
+                    @preview-mode-change="handleModeChange"
+                />
+            </KeepAlive>
         </div>
     </div>
 </template>
 
 <style scoped>
-.layout-content-wrapper {
+.layout-content {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -42,7 +37,7 @@ const handleModeChange = (mode: PreviewType) => {
     background-color: var(--color-gray-100);
 }
 
-.layout-content {
+.layout-simulator-wrapper {
     position: absolute;
     width: 100%;
     height: 100%;

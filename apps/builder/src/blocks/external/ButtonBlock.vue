@@ -1,14 +1,14 @@
 <script setup lang="ts">
-defineProps({
-    title: {
-        type: String,
-        required: true
-    },
-    onClick: {
-        type: Function,
-        required: true
-    }
-})
+// defineProps({
+//     title: {
+//         type: String,
+//         required: true
+//     },
+//     onClick: {
+//         type: Function,
+//         required: true
+//     }
+// })
 </script>
 
 <template>

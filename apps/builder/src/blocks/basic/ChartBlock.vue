@@ -16,5 +16,6 @@ defineProps<{
 <style scoped>
 .chart {
     width: 100%;
+    overflow: hidden;
 }
 </style>

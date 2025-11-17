@@ -1,0 +1,16 @@
+{
+    "name": "@xc-vbuilder/stylelint-config-xc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "module": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "stylelint": "16.25.0",
+        "stylelint-config-standard": "39.0.1",
+        "stylelint-config-standard-vue": "1.0.0",
+        "stylelint-config-standard-scss": "16.0.0"
+    }
+}

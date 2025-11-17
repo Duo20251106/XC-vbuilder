@@ -43,9 +43,8 @@ const fetchChartData = () => {
     const options: ECBasicOption = {
         title: {
             text: 'XC',
-            subtext: 'Circular layout',
-            top: 'top',
-            left: 'left'
+            top: 'bottom',
+            left: 'right'
         },
         tooltip: {},
         legend: [

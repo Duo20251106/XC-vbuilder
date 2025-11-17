@@ -1,0 +1,20 @@
+{
+    "name": "@xc-vbuilder/eslint-config-xc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "module": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "eslint": "9.39.1",
+        "@eslint/js": "9.39.1",
+        "eslint-plugin-vue": "10.5.1",
+        "globals": "16.5.0",
+        "vue-eslint-parser": "10.2.0",
+        "@typescript-eslint/parser": "8.46.3",
+        "eslint-plugin-simple-import-sort": "12.1.1"
+    }
+}

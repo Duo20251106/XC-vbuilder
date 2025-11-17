@@ -27,10 +27,6 @@ const { blocks } = storeToRefs(appEditorStore)
 </template>
 
 <style scoped>
-.outline-list {
-    margin-top: 8px;
-}
-
 .outline-item {
     display: flex;
     align-items: center;
