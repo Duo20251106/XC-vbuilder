@@ -9,7 +9,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig(({ command }: ConfigEnv) => {
     const isDev = command === 'serve'
     return {
-        base: isDev ? '/' : '/xc-vbuilder/',
+        base: isDev ? '/' : '/XC-vbuilder/',
         plugins: [
             /*vue(), vueJsx(),*/ vueDevTools(),
             veauryVitePlugins({ type: 'vue' }),
