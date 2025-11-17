@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Delete,Log, Resting, Shuffle } from '@icon-park/vue-next'
+import { Delete, Log, Resting, Shuffle } from '@icon-park/vue-next'
 import { Panel } from '@vue-flow/core'
 </script>
 

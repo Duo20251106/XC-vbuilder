@@ -76,4 +76,3 @@ const activatedPageIndex = ref(0)
     color: var(--color-gray-700);
 }
 </style>
-

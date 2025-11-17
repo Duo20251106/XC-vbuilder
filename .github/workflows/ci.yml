@@ -1,52 +1,51 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: ["main"]
+    push:
+        branches: ['main']
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+    contents: write
+    pages: write
+    id-token: write
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+    build-and-test:
+        runs-on: ubuntu-latest
 
-    steps:
-      # 1. 拉取代码
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+        steps:
+            # 1. 拉取代码
+            - name: Checkout Repository
+              uses: actions/checkout@v4
 
-      # 2. 安装 pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.20.0
+            # 2. 安装 pnpm
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.20.0
 
-      # 3. 设置 Node 版本 & pnpm 缓存
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "pnpm"
+            # 3. 设置 Node 版本 & pnpm 缓存
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'pnpm'
 
-      # 4. 安装依赖
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+            # 4. 安装依赖
+            - name: Install Dependencies
+              run: pnpm install --frozen-lockfile
 
-      # 5. Lint
-      - name: Run ESLint
-        run: pnpm lint:vue
+            # 5. Lint
+            - name: Run ESLint
+              run: pnpm lint:vue
 
-      # 6. 构建所有 packages & apps
-      - name: Build All Packages
-        run: pnpm build
+            # 6. 构建所有 packages & apps
+            - name: Build All Packages
+              run: pnpm build
 
-      # 7. 部署到github pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/builder/dist
-          
+            # 7. 部署到github pages
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./apps/builder/dist

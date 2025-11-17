@@ -67,7 +67,7 @@ onMounted(() => {
     //animation loop
     setInterval(function () {
         if (Math.random() > 0.2) {
-          //t2 text offset
+            //t2 text offset
             t2.attr('style', {
                 x: w / 2 + Math.random() * 50,
                 y: h / 2

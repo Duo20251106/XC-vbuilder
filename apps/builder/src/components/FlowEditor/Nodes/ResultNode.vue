@@ -26,7 +26,7 @@ const sourceConnections = useNodeConnections({
 const operatorSourceConnections = computed(() => {
     const firstConnection = sourceConnections.value[0]
     if (!firstConnection?.source) return []
-    
+
     // sourceConnections.value[0].source 是连接到当前节点的“运算符节点 ID”
     // getConnectedEdges(id) 获取该运算符节点的所有连线。
     return getConnectedEdges(firstConnection.source).filter(

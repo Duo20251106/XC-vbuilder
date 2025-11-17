@@ -79,4 +79,3 @@ import { blocksBaseMetaList, getBlocksDefaultData } from '@/constants/blocksBase
     font-weight: var(--font-weight-bold);
 }
 </style>
-

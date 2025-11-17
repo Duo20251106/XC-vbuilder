@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FullScreenOne,Iphone, LaptopOne } from '@icon-park/vue-next'
+import { FullScreenOne, Iphone, LaptopOne } from '@icon-park/vue-next'
 import type { Icon } from '@icon-park/vue-next/lib/runtime'
 
 import type { PreviewType } from './type'

@@ -34,7 +34,7 @@ const editable = inject('editable', true)
             :class="['block-wrapper-indicator', { selected: currentBlockId === block.id }]"
         >
             <div class="block-toolbar" v-if="currentBlockId === block.id">
-                <div class="block-toolbar-item handle"> 
+                <div class="block-toolbar-item handle">
                     <!-- 外层的SmoothDndContainer中drag-handle-selector=".handle"-->
                     <!-- 点击这个图标拖动时，smooth-dnd会检测到事件来源是.handle -->
                     <drag />

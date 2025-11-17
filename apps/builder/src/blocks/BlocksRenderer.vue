@@ -19,13 +19,12 @@ const { blocks } = storeToRefs(appEditorStore)
 const { updateBlocks } = appEditorStore
 
 /**
- * 
+ *
  * 返回newBlocks
  * @param arr 原blocks集
  * @param dragResult 拖拽结果信息
  */
 const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
-  
     const { removedIndex, addedIndex, payload } = dragResult
 
     const result = [...arr]
@@ -50,7 +49,6 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
 
     return result
 }
-
 </script>
 
 <template>

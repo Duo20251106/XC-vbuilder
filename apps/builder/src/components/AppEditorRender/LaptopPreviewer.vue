@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 import LaptopPreviewer from '../AppPreviewer/LaptopPreviewer.vue'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'

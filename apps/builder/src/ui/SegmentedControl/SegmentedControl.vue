@@ -25,7 +25,7 @@ const activePosition = reactive({
 
 const { width, height, translate } = toRefs(activePosition)
 
-const innerValue = ref(props.value ?? props.data[0]?.value )
+const innerValue = ref(props.value ?? props.data[0]?.value)
 
 const handleChange = (val: string) => {
     innerValue.value = val

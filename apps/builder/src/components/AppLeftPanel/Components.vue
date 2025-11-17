@@ -60,4 +60,3 @@ const { blocks } = storeToRefs(appEditorStore)
     color: var(--color-gray-700);
 }
 </style>
-

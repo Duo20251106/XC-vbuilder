@@ -19,8 +19,7 @@ const dataSourceList = ref([
         id: '3',
         type: 'basic',
         title: 'Users 10 Rows'
-    },
-
+    }
 ])
 
 const route = useRoute()
