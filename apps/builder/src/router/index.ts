@@ -54,6 +54,6 @@ const routes: RouteRecordRaw[] = [
 ]
 
 export const router = createRouter({
-    history: createWebHistory('/XC-vBuilder/'),
+    history: createWebHistory('/XC-vbuilder/'),
     routes
 })
