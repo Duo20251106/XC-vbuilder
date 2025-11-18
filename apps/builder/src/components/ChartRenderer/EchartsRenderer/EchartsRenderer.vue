@@ -84,7 +84,7 @@ const fetchChartData = () => {
 
     chartInstance.value?.setOption(options)
 }
-
+let ro = ref()
 onMounted(() => {
     if (!chartContainer.value) return
     chartInstance.value = init(chartContainer.value)
@@ -92,11 +92,17 @@ onMounted(() => {
     fetchChartData()
 
     window.addEventListener('resize', resizeHandler)
+
+    ro.value = new ResizeObserver(() => {
+        chartInstance.value?.resize()
+    })
+    ro.value.observe(chartContainer.value)
 })
 
 onBeforeUnmount(() => {
     window.removeEventListener('resize', resizeHandler)
     chartInstance.value?.dispose()
+    ro.value.disconnect()
 })
 </script>
 
