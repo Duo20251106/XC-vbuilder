@@ -28,17 +28,16 @@ const handleModeChange = (mode: PreviewType) => {
 
 <style scoped>
 .layout-content {
-    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
     z-index: 2;
+    height: 100%;
     flex: 1;
     background-color: var(--color-gray-100);
 }
 
 .layout-simulator-wrapper {
-    position: absolute;
+    flex: 1;
     width: 100%;
     height: 100%;
 }

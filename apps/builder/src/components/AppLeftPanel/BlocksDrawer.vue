@@ -37,11 +37,9 @@ import { blocksBaseMetaList, getBlocksDefaultData } from '@/constants/blocksBase
 }
 .blocks-list {
     --grid-item-color: #ef5f4f;
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 2px;
-    /* margin: 0 -12px; */
     padding-bottom: 8px;
 }
 

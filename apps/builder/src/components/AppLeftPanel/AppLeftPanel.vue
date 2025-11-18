@@ -45,22 +45,25 @@ const { isOpen: isComponentDrawerOpened, toggle } = useDisclosure(false)
 
 <style scoped>
 .app-left-panel-wrapper {
-    position: relative;
     display: flex;
+    flex-direction: column;
     z-index: 4;
     height: 100%;
+    overflow: hidden;
 }
 
 .app-left-panel-drawer {
-    min-width: var(--layout-left-panel-width);
     height: 100%;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     z-index: 5;
     background-color: var(--color-white);
+    overflow: hidden;
 }
 
 .app-left-panel-split {
-    height: 50%;
+    flex: 1;
     overflow: auto;
     border-bottom: 1px solid var(--color-gray-200);
     border-right: 1px solid var(--color-gray-200);
@@ -117,7 +120,6 @@ const { isOpen: isComponentDrawerOpened, toggle } = useDisclosure(false)
 }
 
 .sub-panel-drawer {
-    width: 250px;
     height: 100%;
     box-shadow: var(--color-gray-100) 1px 0 0;
     overflow: hidden;
@@ -140,7 +142,6 @@ const { isOpen: isComponentDrawerOpened, toggle } = useDisclosure(false)
 }
 
 .sub-panel-drawer-content {
-    width: 250px;
     height: 100%;
     padding: 16px 16px 16px 20px;
     background-color: rgb(250, 250, 251);

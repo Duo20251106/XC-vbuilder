@@ -6,9 +6,17 @@ import AppRightPanel from '@/components/AppRightPanel/AppRightPanel.vue'
 
 <template>
     <div class="layout-wrapper">
-        <AppLeftPanel />
-        <AppEditorRender />
-        <AppRightPanel />
+        <el-splitter>
+            <el-splitter-panel size="270">
+                <AppLeftPanel />
+            </el-splitter-panel>
+            <el-splitter-panel>
+                <AppEditorRender />
+            </el-splitter-panel>
+            <el-splitter-panel size="300">
+                <AppRightPanel />
+            </el-splitter-panel>
+        </el-splitter>
     </div>
 </template>
 

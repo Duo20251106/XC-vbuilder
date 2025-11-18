@@ -23,7 +23,7 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
     flex-direction: column;
     flex: 1;
     overflow: auto;
-    height: 100px;
+    height: 100%;
 }
 
 .layout-runner-content-header {

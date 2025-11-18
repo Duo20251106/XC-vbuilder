@@ -2,6 +2,9 @@
 // import vueJsx from '@vitejs/plugin-vue-jsx'
 // @ts-ignore
 import { visualizer } from 'rollup-plugin-visualizer'
+import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
 import veauryVitePlugins from 'veaury/vite/index.js'
 import { ConfigEnv, defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -13,7 +16,13 @@ export default defineConfig(({ command }: ConfigEnv) => {
         plugins: [
             /*vue(), vueJsx(),*/ vueDevTools(),
             veauryVitePlugins({ type: 'vue' }),
-            visualizer({ open: true })
+            visualizer({ open: true }),
+            AutoImport({
+                resolvers: [ElementPlusResolver()]
+            }),
+            Components({
+                resolvers: [ElementPlusResolver()]
+            })
         ],
         resolve: {
             alias: {

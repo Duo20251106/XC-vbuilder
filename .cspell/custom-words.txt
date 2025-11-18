@@ -46,6 +46,7 @@ netfront
 nodenext
 nodrag
 nzph
+oxlint
 pdxg
 peaceiris
 pinia
@@ -58,6 +59,7 @@ Siderbar
 symbian
 tiptap
 treo
+unplugin
 utst
 vbuilder
 veaury
